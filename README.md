@@ -2,7 +2,7 @@
 
 # INTRODUCTION
 
-A quick approach to perform comparative analysis of genomic data on selected regions across several samples by means of metagene plots, boxplots and heatmaps. The scripts focus mainly on coverage data coming from DNA methylation (Bisulphite Sequencing), histone methylation (ChIP-seq, cutNrun and similar), and small RNA (sRNA) expression experiments. The scripts consider genes and transposable elements but are easily adaptable to any genomic region of interest.
+A quick approach to perform comparative analysis of genomic data on selected regions across several samples by means of metagene plots, boxplots and heatmaps. The scripts focus mainly on coverage data from DNA methylation (Bisulphite Sequencing), histone methylation (ChIP-seq, cutNrun and similar), and small RNA (sRNA) expression experiments. The scripts consider genes and transposable elements but are easily adaptable to any genomic region of interest.
 
 It is presented here using the *Arabidopsis* TAIR10 genome as example. The scripts do not require to pass command-line arguments; settings like input data and reference genomic files have to be specified by editing the script in a text editor. Therefore, some very basic knowledge of linux and R is required. The scripts are generously commented in hashes (#) with complementary suggestions and hints (worth to read as a complement to this instruction). 
  
@@ -20,22 +20,21 @@ bedtools (v2.26.0)
 
 samtools (v1.3.1)
 
-# SETTING UP THE WORKING DIRECTORY AND THE GENOMIC REFERENCE FILES
-
-
 
 # INSTALLATION
 
 Shell scripts can be cloned and run directly on a linux server.
 
 ```
-git clone https://github.com/Ingefast/small_RNA_analyser.git
-cd small_RNA_analyser
+git clone https://github.com/Ingefast/metagene_express
+cd metagene_express
 ```
 
 # WORKFLOW
 
-## 1. Creation of framework files for a particular genome
+## 1. **`metagene.frame_builder.r`** Creation of framework files for a particular genome
+
+The input of this script consist of an genomic annotation in bed format for the relevant features. Below follows an example of how to prepare such an input file if not available.
 
 ```
 wget https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes_transposons.gff
@@ -46,11 +45,30 @@ wget https://www.arabidopsis.org/download_files/Genes/TAIR10_genome_release/TAIR
 #transforms gff3 to bed format
 #gff2bed < TAIR10_GFF3_gene_TE.ONLY_chr.gff > TAIR10_genes_transposons.bed
 ```
+It creates a six bed files for the whole genome looking like:
 
-## 2. Creating a matrix with binned coverage for every feature.
+```
+Chr1	3630	3687	AT1G01010	1	+
+Chr1	3687	3744	AT1G01010	2	+
+Chr1	3744	3801	AT1G01010	3	+
+Chr1	3801	3858	AT1G01010	4	+
+Chr1	3858	3915	AT1G01010	5	+
+```
 
-Creates a matrix with genomic features as rows and bins as columns.
+## 2. **`metagene.matrix_maker_.r`** creates a matrix with binned coverage for every feature.
 
+Creates a matrix with genomic features as rows and coverage in bins as columns.
+
+
+Input is a bed file with normalised coverage for ChiP-seq, small-RNA of RNA-seq datasets. It can easily be prepared out of sorted BAM file with:
+
+```
+	librarySize=$(samtools idxstats out1.dedup.sorted.bam | awk '{total+=$3}END{print total}');
+	b=10000000;
+	factor=`echo "$b / $librarySize "|bc -l`;
+	bedtools genomecov -i tmp.specific.ext.bed -g ~/genome_ref/TAIR10/TAIR10.chrom.sizes -d -scale $factor > out1.coverage.txt&
+```
+When having DNA methylation data
 **`cx.report.track_maker.r`** should be used to create the input **`track.sorted.bed`***.
 
 The output file **`track.matrix.txt`**.
