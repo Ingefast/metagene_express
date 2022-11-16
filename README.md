@@ -64,11 +64,11 @@ Input is a bed file (**`track.sorted.bed`**) with normalised coverage values for
 	librarySize=$(samtools idxstats out1.dedup.sorted.bam | awk '{total+=$3}END{print total}');
 	b=1000000;
 	factor=`echo "$b / $librarySize "|bc -l`;
-	bedtools genomecov -ibam out1.dedup.sorted.bam -g ~/genome_ref/TAIR10/TAIR10.chrom.sizes -bg -scale $factor |grep -v "chloroplast\|mitochondria"> track.sorted.bed&
+	bedtools genomecov -ibam out1.dedup.sorted.bam -g ~/genome_ref/TAIR10/TAIR10.chrom.sizes -bg -scale $factor |grep -v "chloroplast\|mitochondria"> track.sorted.bed;
 ```
 When having DNA methylation data the script **`cx.report.track_maker.r`** should be used to preprocess the cytosine methylation reports from [bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/) in each cytosine context. 
 
-## 3. Looking at the data: plotting metageneplots, boxplots and heatmaps.
+## 3. Looking at the data: metagene plots, boxplots and heatmaps.
 
 The script **`metagene.plotter.r`** creates a combined line graph linkig mean values across bins and a boxplot for the genomic values in the feature body. In the example below four tracks representing two conditions with two replicates are presented.
 
@@ -76,8 +76,9 @@ The script **`metagene.plotter.r`** creates a combined line graph linkig mean va
 
 *Figure 1*. (A) bedGraph files of a wildtype in *Capsella* for different sRNA sizes. (B) Correlogram of 24nt sRNA values over genes in three conditions with two replicates each. (C) NMDS diagram of the same dataset.
 
-The **`track.matrix.txt`** files produced at step 2 can also be used to build heatmap as in figure 2.
+The **`track.matrix.txt`** files produced at step 2 can also be used to build heatmap as in figure 2 using **`metagene.heatmap.r`**.
 
+![This is an image](/images/figure2.png)
 *Figure 2*
 
 
