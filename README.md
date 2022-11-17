@@ -75,8 +75,20 @@ If not available as such, it can easily be prepared out of sorted alignment file
 	librarySize=$(samtools idxstats out1.dedup.sorted.bam | awk '{total+=$3}END{print total}');
 	b=1000000;
 	factor=`echo "$b / $librarySize "|bc -l`;
-	bedtools genomecov -ibam out1.dedup.sorted.bam -g ~/genome_ref/TAIR10/TAIR10.chrom.sizes -bg -scale $factor |grep -v "chloroplast\|mitochondria"> track.sorted.bed;
+	bedtools genomecov -ibam out1.dedup.sorted.bam -g TAIR10.chrom.notPt.notMt.sizes -bg -scale $factor |grep -v "chloroplast\|mitochondria"> track.sorted.bed;
 ```
+
+The **`TAIR10.chrom.notPt.notMt.sizes`** referred above and also needed for **`metagene.matrixmaker.r`** is just a plain text file with chromosome sizes. It is provided under [example](https://github.com/Ingefast/metagene_express/example):
+```
+Chr1    30427671
+Chr2    19698289
+Chr3    23459830
+Chr4    18585056
+Chr5    26975502
+```
+
+Read the [bedtools genomecov](https://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html) instruction website for help if problems arise.
+
 When having DNA methylation data the script **`cx.report.track_maker.r`** should be used to preprocess the cytosine methylation reports from the **`bismark_methylation_extractor`** from [bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/) separately in each cytosine context (CG, CHG, CHH).
 
 ## 3. Looking at the data: metagene plots, boxplots and heatmaps.
