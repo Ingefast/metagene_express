@@ -29,6 +29,8 @@ git clone https://github.com/Ingefast/metagene_express
 cd metagene_express
 ```
 
+![This is an image](/images/flowchart.png)
+
 # WORKFLOW
 
 ## 1. Creation of framework files for a particular genome
@@ -70,7 +72,7 @@ When having DNA methylation data the script **`cx.report.track_maker.r`** should
 
 ## 3. Looking at the data: metagene plots, boxplots and heatmaps.
 
-The script **`metagene.plotter.r`** creates a combined line graph linkig mean values across bins and a boxplot for the genomic values in the feature body. In the example below four tracks representing two conditions with two replicates are presented.
+The script **`metagene.plotter.r`** creates a combined line graph linking mean coverage or methylation values across each feature and its flanks, and a boxplot for the values only within the feature body. In the example below four tracks representing two conditions with two replicates are presented.
 
 ![This is an image](/images/figure1.png)
 
