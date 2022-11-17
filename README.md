@@ -57,7 +57,7 @@ Chr1	3801	3858	AT1G01010	4	+
 Chr1	3858	3915	AT1G01010	5	+
 ```
 
-## 2. Creation of a matrix file with binned coverage for every feature.
+## 2. Creation of a matrix file with binned coverage for genes and transposable elements
 
 The script **`metagene.matrixmaker.r`** creates a matrix with genomic features as rows and average coverage values for each bin as columns.
 
@@ -91,7 +91,7 @@ Read the [bedtools genomecov](https://bedtools.readthedocs.io/en/latest/content/
 
 When having DNA methylation data the script **`metagene.cx.track_maker.r`** should be used to preprocess the cytosine methylation reports from the **`bismark_methylation_extractor`** from [bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/) separately in each cytosine context (CG, CHG, CHH).
 
-## 3. Looking at the data: metagene plots, boxplots and heatmaps.
+## 3. Looking at the data: metagene plots, boxplots and heatmaps
 
 The script **`metagene.plotter.r`** creates a combined line graph linking the average coverage or methylation values across each feature and its flanks, and a boxplot for the values only within the feature body. In the example below four tracks representing two conditions with two replicates are presented.
 
