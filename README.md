@@ -16,9 +16,9 @@ Scripts were tested using GNU bash (v4.4.20) and R (v3.4.4) in a Ubuntu 18.04 li
 
 The following additional tools should ideally be available in the ``PATH`` environment. The pipeline is fully functional and tested with the indicated versions of the packages listed below. Other versions are very likely functional as well, but a detailed compatibility review of older and newer versions has not been done here. 
 
-[bedtools](https://bedtools.readthedocs.io/en/latest/#) (v2.26.0)
+[`bedtools`](https://bedtools.readthedocs.io/en/latest/#) (v2.26.0)
 
-[samtools](http://www.htslib.org/) (v1.3.1)
+[`samtools`](http://www.htslib.org/) (v1.3.1)
 
 
 # INSTALLATION
@@ -89,7 +89,7 @@ Chr5    26975502
 
 Read the [bedtools genomecov](https://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html) instruction website for help if problems arise.
 
-When having DNA methylation data the script **`metagene.cx.track_maker.r`** should be used to preprocess the cytosine methylation reports from the **`bismark_methylation_extractor`** from [bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark/) separately in each cytosine context (CG, CHG, CHH).
+When having DNA methylation data the script **`metagene.cx.track_maker.r`** should be used to preprocess the cytosine methylation reports from the **`bismark_methylation_extractor`** from [`bismark`](https://www.bioinformatics.babraham.ac.uk/projects/bismark/) separately in each cytosine context (CG, CHG, CHH).
 
 ## 3. Looking at the data: metagene plots, boxplots and heatmaps
 
