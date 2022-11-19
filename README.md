@@ -70,7 +70,7 @@ Chr1	1303	1428	3.58513
 Chr1	1685	1739	3.58513
 ```
 
-If not available as such, it can easily be prepared out of sorted alignment file (**`bam`**) in a linux environment with:
+If not available as such, it can easily be prepared out of sorted alignment file (**`bam`**) in a linux environment. The following transforms an alignment to a coverage file with Reads Per Million (RPM) values:
 ```
 	librarySize=$(samtools idxstats out1.dedup.sorted.bam | awk '{total+=$3}END{print total}');
 	b=1000000;
