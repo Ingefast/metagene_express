@@ -78,7 +78,7 @@ If not available as such, it can easily be prepared out of sorted alignment file
 	bedtools genomecov -ibam out1.dedup.sorted.bam -g TAIR10.chrom.notPt.notMt.sizes -bg -scale $factor |grep -v "chloroplast\|mitochondria"> track.sorted.bed;
 ```
 
-The **`TAIR10.chrom.notPt.notMt.sizes`** referred above and also needed for **`metagene.matrixmaker.r`** is just a plain text file with chromosome sizes. It is provided under [example](https://github.com/Ingefast/metagene_express/tree/main/example):
+The **`TAIR10.chrom.notPt.notMt.sizes`** referred above, and also needed for **`metagene.matrixmaker.r`**, is just a plain text file with chromosome sizes. It is provided under [example](https://github.com/Ingefast/metagene_express/tree/main/example):
 ```
 Chr1    30427671
 Chr2    19698289
