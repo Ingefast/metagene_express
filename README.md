@@ -93,7 +93,7 @@ When having DNA methylation data the script **`metagene.cx.track_maker.r`** shou
 
 ## 3. Looking at the data: metagene plots, boxplots and heatmaps
 
-The script **`metagene.plotter.r`** creates a combined line graph linking the average coverage or methylation values across each feature and its flanks, and a boxplot for the values only within the feature body. In the example below four tracks representing two conditions with two replicates are presented.
+The script **`metagene.plotter.r`** creates a combined line graph linking the average coverage or methylation values across the bins of each feature and its flanks, and a boxplot for the values only within the feature body. In the example below four tracks representing two conditions with two replicates are presented.
 
 
 ![This is an image](/images/figure1.png)
