@@ -2,7 +2,7 @@
 
 # INTRODUCTION
 
-A quick approach to perform comparative analysis of high throughput sequencing data on selected regions across several samples using metagene plots, boxplots and heatmaps. The pipeline processed coverage data from DNA methylation (Bisulphite Sequencing), histone methylation (ChIP-seq, cutNrun and similar), and small RNA (sRNA) expression experiments. The scripts consider genes and transposable elements using the *Arabidopsis* TAIR10 genome but should be easily adaptable to any genomic region of interest in any other organisms.
+An practical and quick approach to perform comparative analysis of high throughput sequencing data on selected regions across several samples using metagene plots, boxplots and heatmaps. This pipeline process coverage data from DNA methylation (Bisulphite Sequencing), histone methylation (ChIP-seq, cutNrun and similar), and small-RNA (sRNA) expression experiments. The scripts consider genes and transposable elements using the *Arabidopsis* TAIR10 genome but should be easily adaptable to any genomic region of interest in any other organisms.
 
 The scripts do not require to pass command-line arguments; settings like input data and reference genomic files have to be specified by editing the script header in a text editor. Therefore, some very basic knowledge of linux and R is required. The scripts are generously commented in hashes (#) with complementary suggestions.
  
