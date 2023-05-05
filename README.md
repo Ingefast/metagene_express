@@ -100,7 +100,7 @@ The script **`metagene.plotter.r`** creates a combined line graph linking the av
 *Figure 1*. Example of metagene plots (left) and boxplots (right) of DNA methylation in CG context for genes and TEs in *Arabidopsis*. Yellow asteriscs in boxes represent mean values. It has to be beared in mind that the metagene plot line represent mean values, while the boxplots notched midline represent medians.
 
 
-The same **`track.matrix.txt`** files produced at step 2 can also be used to build heatmap as in figure 2 using **`metagene.heatmap.r`**.
+The same **`track.matrix.txt`** files produced at step 2 can also be used to build heatmaps as in figure 2 using **`metagene.heatmap.r`**.
 
 
 ![This is an image](/images/figure2.png)
@@ -109,7 +109,7 @@ The same **`track.matrix.txt`** files produced at step 2 can also be used to bui
 
 # REFERENCES
 
-Modified versions of this scripts have been used to process the the datasets in the following papers:
+Modified versions of this scripts have been used to process the datasets in the following papers:
 
 1. Schatlowski N et al (2014). Hypomethylated pollen bypasses the interploidy hybridization barrier in *Arabidopsis*. **Plant Cell** 26 (9) 3556-68.
 2. Martinez G et al (2018). Paternal easiRNAs regulate parental genome dosage in *Arabidopsis*. **Nature Genetics** 50 (2) 193-198.
